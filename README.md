@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 
-> **A proof-of-concept project demonstrating a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline.**
+> **A simple proof-of-concept for a fully automated CI/CD pipeline.**
 
 ---
 
@@ -22,7 +22,7 @@ Check out the deployed application here:
 Manual deployments are error-prone and time-consuming. "Works on my machine" is a common issue when the development environment differs from production.
 
 ### The Solution
-This project implements a **"Zero-Touch" deployment strategy**. By leveraging **GitHub Actions** and **Docker**, code changes are automatically containerized and deployed to the cloud (Render). This ensures consistency and speeds up the delivery cycle.
+This project implements a **"Zero-Touch" deployment strategy**. By leveraging **GitHub Actions** and **Docker**, code changes are automatically containerized and deployed to the cloud (Render). This helps avoid environment drift and reduces manual deployment steps.
 
 ---
 
