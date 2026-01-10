@@ -19,23 +19,23 @@ Check out the deployed application here:
 ## 📖 Project Overview
 
 ### The Problem
-In traditional software development, deploying updates manually is error-prone, time-consuming, and leads to "works on my machine" issues. Manual deployments often result in downtime and inconsistent environments.
+Manual deployments are error-prone and time-consuming. "Works on my machine" is a common issue when the development environment differs from production.
 
 ### The Solution
-This project implements a **"Zero-Touch" deployment strategy**. By leveraging **GitHub Actions** and **Docker**, every code change is automatically built, tested, containerized, and deployed to the cloud (Render) without human intervention. This ensures a consistent, reliable, and fast release cycle.
+This project implements a **"Zero-Touch" deployment strategy**. By leveraging **GitHub Actions** and **Docker**, code changes are automatically containerized and deployed to the cloud (Render). This ensures consistency and speeds up the delivery cycle.
 
 ---
 
 ## 🏗 Architecture Flow
 
-The pipeline automates the workflow from code commit to production deployment.
+The pipeline automates the workflow from code commit to deployment.
 
 ```mermaid
 graph LR;
     User[Developer] -->|git push| GitHub[GitHub Repository];
     GitHub -->|Trigger| Actions[GitHub Actions CI];
     subgraph CI_Pipeline ["CI Pipeline"]
-        Actions -->|1. Checkout Code| Test[Unit Tests];
+        Actions -->|1. Checkout Code| Test[Code Verification];
         Test -->|2. Build Image| Docker[Docker Build];
     end
     Docker -->|3. Deploy Hook| Render[Render Cloud PaaS];
@@ -44,28 +44,27 @@ graph LR;
 
 1.  **Code Push**: Developer pushes code to the `main` branch.
 2.  **CI Trigger**: GitHub Actions detects the event and starts the workflow.
-3.  **Build & Test**: The code is checked out, dependencies installed, and tests run.
-4.  **Containerization**: A lightweight Docker image is built.
-5.  **Auto-Deployment**: Upon success, the pipeline triggers a deployment to Render.
+3.  **Build & Verify**: The code is checked out and the Docker build process is initiated to verify structural integrity.
+4.  **Auto-Deployment**: Upon a successful build, the pipeline triggers a deployment to Render.
 
 ---
 
 ## 🛠 Tech Stack
 
--   **Containerization**: Docker (ensures environment consistency)
+-   **Containerization**: Docker (Standardizes the runtime environment)
 -   **CI/CD**: GitHub Actions (Workflow automation)
 -   **Application**: Python, Flask (Web Framework)
 -   **Cloud Platform**: Render (PaaS for hosting)
--   **Infrastructure as Code**: YAML (Pipeline configuration)
+-   **Configuration**: YAML (Pipeline definition)
 
 ---
 
 ## ✨ Key Features
 
--   **Containerization**: The application is fully Dockerized, eliminating dependency conflicts and ensuring the app runs exactly the same in Dev and Prod.
--   **Zero-Touch Automation**: The entire pipeline is triggered by Git events. No manual SSH or server configuration is required for updates.
--   **Infrastructure as Code (IaC)**: The build and deploy logic is defined in code (`.github/workflows`), making the pipeline version-controlled and reproducible.
--   **Automated Quality Gate**: The pipeline is configured to fail (and stop deployment) if the build steps encounter errors, preventing bad code from reaching production.
+-   **Dockerized Application**: Eliminates dependency conflicts by packaging the app and its environment together.
+-   **Automated Workflow**: Removes the need for manual server access or manual build commands.
+-   **Pipeline as Code**: The build and deploy logic is defined in `.github/workflows`, making the process version-controlled and reproducible.
+-   **Build Verification**: The pipeline ensures the Docker image can be built successfully before attempting deployment.
 
 ---
 
