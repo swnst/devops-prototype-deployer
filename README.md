@@ -76,7 +76,7 @@ If you want to test the application on your local machine before deploying:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/swnst/the-zero-touch-pipeline.git
-cd zero-touch-pipeline
+cd the-zero-touch-pipeline
 ```
 
 ### 2. Build the Docker Image
