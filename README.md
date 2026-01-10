@@ -75,7 +75,7 @@ If you want to test the application on your local machine before deploying:
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/zero-touch-pipeline.git](https://github.com/swnst/zero-touch-pipeline.git)
+git clone https://github.com/swnst/the-zero-touch-pipeline
 cd zero-touch-pipeline
 ```
 
